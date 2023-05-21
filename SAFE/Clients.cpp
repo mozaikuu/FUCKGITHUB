@@ -50,7 +50,7 @@ public:
 // };
 // admin("admin", "0", 99999999999, "01501844888", "admin"); // if admin == true then login as admin without password
 
-Customer customer[SIZE] = {Customer("moussa", "1", 1000, "01042333253", "pass1"),
+Customer customer[SIZE] = {Customer("moussa", "1", 1000, "01501844888", "pass1"),
                            Customer("fawaz", "2", 2000, "01556703723", "pass2"),
                            Customer("rawan", "3", 3000, "01042333253", "pass3"),
                            Customer("hatem", "4", 4000, "01556703523", "pass4"),

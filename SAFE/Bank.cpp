@@ -7,8 +7,8 @@ int main()
 {
 
     // Register(usernames, passwords, num_users, id, number); append to list
-    std::cout << "welcome to the bank." << std::endl;
-    std::cout << std::endl;
+    cout << "welcome to the bank." << std::endl;
+    cout << std::endl;
     Menu();
 
     return 0;

@@ -155,25 +155,27 @@ std::string Find()
         {
             exit(0);
         }
-
-        for (int i = 0; i < SIZE; i++)
+        else
         {
-            if (customer[i].name == x && customer[i].password == y)
+            for (int i = 0; i < SIZE; i++)
             {
-                currUser = customer[i].name;
-                currPass = customer[i].password;
-                return currUser;
-            }
-            else if (vip[i].name == x && vip[i].password == y)
-            {
-                currUser = vip[i].name;
-                currPass = vip[i].password;
-                return currUser;
-            }
-            else if (i == SIZE - 1)
-            {
-                std::cout << "user not found..." << std::endl;
-                std::cout << std::endl;
+                if (customer[i].name == x && customer[i].password == y)
+                {
+                    currUser = customer[i].name;
+                    currPass = customer[i].password;
+                    return currUser;
+                }
+                else if (vip[i].name == x && vip[i].password == y)
+                {
+                    currUser = vip[i].name;
+                    currPass = vip[i].password;
+                    return currUser;
+                }
+                else if (i == SIZE - 1)
+                {
+                    std::cout << "user not found..." << std::endl;
+                    std::cout << std::endl;
+                }
             }
         }
     } while (x != currUser || y != currPass);
@@ -197,7 +199,7 @@ void Menu()
     std::cout << "4. Search." << std::endl;
     std::cout << "5. exit." << std::endl;
     std::cout << std::endl;
-    std::cout << "enter number: ";
+    std::cout << "choose: ";
     std::cin >> x;
     std::cout << std::endl;
 
@@ -217,7 +219,7 @@ void Menu()
         break;
     case 5:
         std::cout << "exiting..." << std::endl;
-        return;
+        exit(0);
         break;
     default:
         std::cout << "invalid input..." << std::endl;
