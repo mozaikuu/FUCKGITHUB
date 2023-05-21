@@ -261,7 +261,7 @@ void send_to(std::string from_user)
                         else
                         {
                             vip[i].balance -= amount;
-                            vip[j].balance += amount;
+                            customer[j].balance += amount;
                             std::cout << "You sent " << amount << " to " << to_user << std::endl;
                             std::cout << std::endl;
                             return;
