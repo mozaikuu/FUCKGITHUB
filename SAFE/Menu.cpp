@@ -142,7 +142,6 @@ std::string Find()
 
     do
     {
-        std::cout << "press enter while empty to exit." << std::endl;
 
         std::cout << "\tenter username: ";
         std::cin >> x;
@@ -151,10 +150,6 @@ std::string Find()
         std::cin >> y;
         std::cout << std::endl;
 
-        if (x == "" || y == "")
-        {
-            exit(0);
-        }
         for (int i = 0; i < SIZE; i++)
         {
             if (customer[i].name == x && customer[i].password == y)
