@@ -56,7 +56,7 @@ bool isBroke(std::string name)
     }
 }
 
-std::string deposit(std::string name)
+void deposit(std::string name)
 {
     int amount;
     std::cout << "enter amount: ";
@@ -71,7 +71,6 @@ std::string deposit(std::string name)
             std::cout << "Deposit successfully..." << std::endl;
             std::cout << "Your new balance is: " << (customer[i].balance += amount) << std::endl;
             std::cout << std::endl;
-            return name;
         }
         else if (vip[i].name == name)
         {
@@ -79,7 +78,6 @@ std::string deposit(std::string name)
             std::cout << "Deposit successfully..." << std::endl;
             std::cout << "Your new balance is: " << (customer[i].balance += amount) << std::endl;
             std::cout << std::endl;
-            return name;
         }
     }
 }
