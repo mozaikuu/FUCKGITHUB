@@ -160,7 +160,7 @@ void loan(std::string name)
             std::cout << customer[i].balance << std::endl;
             std::cout << std::endl;
         }
-        else if (vip[i].name == name && checkBalance(name) >= 0)
+        else if (vip[i].name == name && checkBalance(name) >= 0 && amount <= 100000)
         {
             vip[i].balance -= amount * vip[i].discount;
             std::cout << "loan successful..." << std::endl;
