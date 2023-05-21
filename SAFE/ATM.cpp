@@ -190,105 +190,110 @@ void send_to(std::string from_user)
     }
     for (int i = 0; i < SIZE; i++)
     {
-        if (to_user == customer[i].name || to_user == vip[i].name)
+        if (customer[i].name == from_user)
         {
-            break;
-        }
-        else if (i == SIZE - 1)
-        {
-            std::cout << "user does not exist..." << std::endl;
-            std::cout << std::endl;
-            return;
-        }
-    }
-    int amount;
-    std ::cout << checkBalance(from_user) << std::endl;
-    std::cout << "enter amount: ";
-    std::cin >> amount;
-    std::cout << std::endl;
+            for (int j = 0; j < SIZE; j++)
+            {
+                if (customer[j].name == to_user)
+                {
+                    int amount;
+                    std::cout << "enter amount: ";
+                    std::cin >> amount;
+                    std::cout << std::endl;
 
-    for (int i = 0; i < SIZE; i++) // more less ==
-    {
-        if (isBroke(from_user) == false)
+                    if (amount > customer[i].balance)
+                    {
+                        std::cout << "You don't have enough money..." << std::endl;
+                        std::cout << std::endl;
+                        return;
+                    }
+                    else
+                    {
+                        customer[i].balance -= amount;
+                        customer[j].balance += amount;
+                        std::cout << "You sent " << amount << " to " << to_user << std::endl;
+                        std::cout << std::endl;
+                        return;
+                    }
+                }
+                else if (vip[j].name == to_user)
+                {
+                    int amount;
+                    std::cout << "enter amount: ";
+                    std::cin >> amount;
+                    std::cout << std::endl;
+
+                    if (amount > customer[i].balance)
+                    {
+                        std::cout << "You don't have enough money..." << std::endl;
+                        std::cout << std::endl;
+                        return;
+                    }
+                    else
+                    {
+                        customer[i].balance -= amount;
+                        vip[j].balance += amount;
+                        std::cout << "You sent " << amount << " to " << to_user << std::endl;
+                        std::cout << std::endl;
+                        return;
+                    }
+                }
+            }
+        }
+        else if (vip[i].name == from_user)
         {
-            if (customer[i].name == from_user)
+            for (int j = 0; j < SIZE; j++)
             {
-                if (customer[i].balance < amount)
                 {
-                    std::cout << "Sorry but you do not have the funds..." << std::endl;
-                    std::cout << std::endl;
-                    break;
+                    if (customer[j].name == to_user)
+                    {
+                        int amount;
+                        std::cout << "enter amount: ";
+                        std::cin >> amount;
+                        std::cout << std::endl;
+
+                        if (amount > vip[i].balance)
+                        {
+                            std::cout << "You don't have enough money..." << std::endl;
+                            std::cout << std::endl;
+                            return;
+                        }
+                        else
+                        {
+                            vip[i].balance -= amount;
+                            vip[j].balance += amount;
+                            std::cout << "You sent " << amount << " to " << to_user << std::endl;
+                            std::cout << std::endl;
+                            return;
+                        }
+                    }
+                    else if (vip[j].name == to_user)
+                    {
+                        int amount;
+                        std::cout << "enter amount: ";
+                        std::cin >> amount;
+                        std::cout << std::endl;
+
+                        if (amount > vip[i].balance)
+                        {
+                            std::cout << "You don't have enough money..." << std::endl;
+                            std::cout << std::endl;
+                            return;
+                        }
+                        else
+                        {
+                            vip[i].balance -= amount;
+                            vip[j].balance += amount;
+                            std::cout << "You sent " << amount << " to " << to_user << std::endl;
+                            std::cout << std::endl;
+                            return;
+                        }
+                    }
                 }
-                else
-                {
-                    customer[i].balance -= amount;
-                    std::cout << "sent successfully..." << std::endl;
-                    std::cout << checkBalance(from_user) << std::endl;
-                    std::cout << std::endl;
-                    break;
-                }
-            }
-            else if (vip[i].name == from_user)
-            {
-                if (vip[i].balance < amount)
-                {
-                    std::cout << "Sorry but you do not have the funds..." << std::endl;
-                    std::cout << std::endl;
-                    break;
-                }
-                else
-                {
-                    vip[i].balance -= amount;
-                    std::cout << "sent successfully..." << std::endl;
-                    std::cout << checkBalance(from_user) << std::endl;
-                    std::cout << std::endl;
-                    break;
-                }
-            }
-            else if (customer[i].name == to_user)
-            {
-                if (customer[i].balance < amount)
-                {
-                    std::cout << "Sorry but you do not have the funds..." << std::endl;
-                    std::cout << std::endl;
-                    break;
-                }
-                else
-                {
-                    customer[i].balance += amount;
-                    std::cout << "sent successfully..." << std::endl;
-                    std::cout << checkBalance(from_user) << std::endl;
-                    std::cout << std::endl;
-                    break;
-                }
-            }
-            else if (vip[i].name == to_user)
-            {
-                if (vip[i].balance < amount)
-                {
-                    std::cout << "Sorry but you do not have the funds..." << std::endl;
-                    std::cout << std::endl;
-                    break;
-                }
-                else
-                {
-                    vip[i].balance += amount;
-                    std::cout << "sent successfully..." << std::endl;
-                    std::cout << checkBalance(from_user) << std::endl;
-                    std::cout << std::endl;
-                    break;
-                }
-            }
-            else if (i == SIZE - 1)
-            {
-                std::cout << "user does not exist..." << std::endl;
-                std::cout << std::endl;
-                break;
             }
         }
     }
 }
-
 void ATM()
 {
     std::string name = login();
