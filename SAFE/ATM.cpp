@@ -101,17 +101,17 @@ void withdraw(std::string name)
             if (amount > customer[i].balance)
             {
                 netAmount = customer[i].balance;
-                int newBal = customer[i].balance - netAmount;
+                customer[i].balance -= netAmount;
                 std::cout << "withdraw successful..." << std::endl;
                 std::cout << "You took: " << netAmount << std::endl;
-                std::cout << "Your balance is: " << newBal << std::endl;
+                std::cout << "Your balance is: " << (customer[i].balance) << std::endl;
             }
             else
             {
-                int newBal = customer[i].balance - amount;
+                customer[i].balance -= amount;
                 std::cout << "withdraw successful..." << std::endl;
                 std::cout << "You took: " << amount << std::endl;
-                std::cout << "Your balance now is: " << newBal << std::endl;
+                std::cout << "Your balance now is: " << (customer[i].balance) << std::endl;
             }
             std::cout << std::endl;
         }
@@ -122,23 +122,22 @@ void withdraw(std::string name)
             if (amount > vip[i].balance)
             {
                 netAmount = vip[i].balance;
-                int newBal = vip[i].balance - netAmount;
+                vip[i].balance -= netAmount;
                 std::cout << "withdraw successful..." << std::endl;
                 std::cout << "You took: " << netAmount << std::endl;
-                std::cout << "Your balance is: " << newBal << std::endl;
+                std::cout << "Your balance is: " << (vip[i].balance) << std::endl;
             }
             else
             {
-                int newBal = vip[i].balance - amount;
+                vip[i].balance -= amount;
                 std::cout << "withdraw successful..." << std::endl;
                 std::cout << "You took: " << amount << std::endl;
-                std::cout << "Your balance now is: " << newBal << std::endl;
+                std::cout << "Your balance now is: " << (vip[i].balance) << std::endl;
             }
             std::cout << "withdraw successful..." << std::endl;
             std::cout << std::endl;
         }
-        //
-        else if (((vip[i].name == name) || (customer[i].name == name)) && checkBalance(name) < 0)
+        else if (((vip[i].name == name) || (customer[i].name == name)) && checkBalance(name) <= 0)
         {
             std::cout << "Sorry but you can't withdraw" << std::endl;
             std::cout << std::endl;
