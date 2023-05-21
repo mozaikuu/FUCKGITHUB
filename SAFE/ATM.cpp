@@ -145,6 +145,7 @@ void withdraw(std::string name)
 
 void loan(std::string name)
 {
+    checkBalance(name);
     int amount;
     std::cout << "enter amount: ";
     std::cin >> amount;
