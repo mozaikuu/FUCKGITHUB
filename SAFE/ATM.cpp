@@ -103,12 +103,14 @@ void withdraw(std::string name)
                 netAmount = customer[i].balance;
                 int newBal = customer[i].balance - netAmount;
                 std::cout << "withdraw successful..." << std::endl;
+                std::cout << "You took: " << netAmount << std::endl;
                 std::cout << "Your balance is: " << newBal << std::endl;
             }
             else
             {
                 int newBal = customer[i].balance - amount;
                 std::cout << "withdraw successful..." << std::endl;
+                std::cout << "You took: " << amount << std::endl;
                 std::cout << "Your balance now is: " << newBal << std::endl;
             }
             std::cout << std::endl;
