@@ -157,14 +157,14 @@ void loan(std::string name)
         {
             customer[i].balance -= amount;
             std::cout << "loan successful..." << std::endl;
-            std::cout << checkBalance(name) << std::endl;
+            std::cout << customer[i].balance << std::endl;
             std::cout << std::endl;
         }
         else if (vip[i].name == name && checkBalance(name) >= 0)
         {
             vip[i].balance -= amount * vip[i].discount;
             std::cout << "loan successful..." << std::endl;
-            std::cout << checkBalance(name) << std::endl;
+            std::cout << vip[i].balance << std::endl;
             std::cout << std::endl;
         }
         else if (((vip[i].name == name) || (customer[i].name == name)) && checkBalance(name) < 0)
