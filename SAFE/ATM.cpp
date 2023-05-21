@@ -67,17 +67,15 @@ void deposit(std::string name)
     {
         if (customer[i].name == name)
         {
-            int newbal = customer[i].balance += amount;
             std::cout << "Deposit successfully..." << std::endl;
-            std::cout << "Your new balance is: " << newbal << std::endl;
+            std::cout << "Your new balance is: " << vip[i].balance << std::endl;
             std::cout << std::endl;
         }
         else if (vip[i].name == name)
         {
-            int newbal = vip[i].balance += amount;
             vip[i].balance += amount;
             std::cout << "Deposit successfully..." << std::endl;
-            std::cout << "Your new balance is: " << newbal << std::endl;
+            std::cout << "Your new balance is: " << vip[i].balance << std::endl;
             std::cout << std::endl;
         }
     }
