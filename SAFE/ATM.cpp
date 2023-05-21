@@ -122,13 +122,18 @@ void withdraw(std::string name)
             if (amount > vip[i].balance)
             {
                 netAmount = vip[i].balance;
-                vip[i].balance - netAmount;
+                int newBal = vip[i].balance - netAmount;
+                std::cout << "withdraw successful..." << std::endl;
+                std::cout << "You took: " << netAmount << std::endl;
+                std::cout << "Your balance is: " << newBal << std::endl;
             }
             else
             {
-                vip[i].balance - amount;
+                int newBal = vip[i].balance - amount;
+                std::cout << "withdraw successful..." << std::endl;
+                std::cout << "You took: " << amount << std::endl;
+                std::cout << "Your balance now is: " << newBal << std::endl;
             }
-
             std::cout << "withdraw successful..." << std::endl;
             std::cout << std::endl;
         }
