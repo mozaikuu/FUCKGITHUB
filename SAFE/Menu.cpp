@@ -155,27 +155,24 @@ std::string Find()
         {
             exit(0);
         }
-        else
+        for (int i = 0; i < SIZE; i++)
         {
-            for (int i = 0; i < SIZE; i++)
+            if (customer[i].name == x && customer[i].password == y)
             {
-                if (customer[i].name == x && customer[i].password == y)
-                {
-                    currUser = customer[i].name;
-                    currPass = customer[i].password;
-                    return currUser;
-                }
-                else if (vip[i].name == x && vip[i].password == y)
-                {
-                    currUser = vip[i].name;
-                    currPass = vip[i].password;
-                    return currUser;
-                }
-                else if (i == SIZE - 1)
-                {
-                    std::cout << "user not found..." << std::endl;
-                    std::cout << std::endl;
-                }
+                currUser = customer[i].name;
+                currPass = customer[i].password;
+                return currUser;
+            }
+            else if (vip[i].name == x && vip[i].password == y)
+            {
+                currUser = vip[i].name;
+                currPass = vip[i].password;
+                return currUser;
+            }
+            else if (i == SIZE - 1)
+            {
+                std::cout << "user not found..." << std::endl;
+                std::cout << std::endl;
             }
         }
     } while (x != currUser || y != currPass);
